@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchCharactersInfo } from "../utils/api";
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import Loader from "./Loader";
 
 const Background = styled.div`
     width: 100%;
@@ -76,7 +77,7 @@ const CharacterInfo = ({ id, characterInfo, setCharacterInfo }) => {
     }, [])
 
     if (characterInfo.length === 0) {
-        return <div>loading</div>
+        return <Loader />
     }
   
     return (

@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import { fetchCharacters } from "../utils/api";
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import Loader from "./Loader";
 
 const Background = styled.div`
     width: 100%;
     height: 100%;
+    min-height: 100vh;
     background-color: ${(props) => props.theme.background};
 `
 
@@ -21,6 +23,7 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1rem;
+  margin-top: 70px;
 `;
 
 const Card = styled.div`
@@ -48,19 +51,18 @@ const CardText = styled.p`
 `;
 
 
-const Character = ({ characters, setCharacters }) => {
+const Character = ({ characters, setCharacters, searchQuery }) => {
 
     useEffect(() => {
         const fetchData = async () => {
             const character_data = await fetchCharacters(50);
             setCharacters(character_data.data.results);
         } 
-        
         fetchData();
     }, [])
 
     if (characters.length === 0) {
-        return <div>Loading</div>;
+        return <Loader />
     }
   
     return (
@@ -68,7 +70,9 @@ const Character = ({ characters, setCharacters }) => {
          <Background>
          <Container>
             <Grid>
-                {characters.map(character => (
+                {characters
+                .filter((character) => character.name.toLowerCase().includes(searchQuery.toLowerCase()))
+                .map(character => (
                     <Link to={`/character/${character.id}`} key={character.id}>
                         <Card> 
                         <CardImage 

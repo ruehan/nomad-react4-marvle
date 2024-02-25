@@ -4,18 +4,17 @@ import styled from 'styled-components';
 import { darkMode } from '../utils/atom';
 import { MdLightMode, MdModeNight } from "react-icons/md";
 
-
-
 const HeaderContainer = styled.header`
   background-color: #282c34;
   padding: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: sticky;
+  position: fixed;
   top: 0px;
   left: 0px;
   z-index: 10;
+  width: 100%;
 `;
 
 const Logo = styled.div`
@@ -25,7 +24,10 @@ const Logo = styled.div`
 
 const Menu = styled.nav`
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 1rem;
+  min-width: 300px;
 `;
 
 const MenuItem = styled(Link)`

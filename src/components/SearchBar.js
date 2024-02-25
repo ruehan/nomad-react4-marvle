@@ -1,8 +1,4 @@
-import { Link } from 'react-router-dom';
-import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
-import { darkMode } from '../utils/atom';
-import { MdLightMode, MdModeNight } from "react-icons/md";
 
 const Background = styled.div`
     width: 100%;
@@ -20,6 +16,7 @@ const SearchInput = styled.input`
   position: fixed;
   top: 80px;
   left: 25%;
+  z-index: 20;
 `;
 
 function SearchBar({searchQuery, setSearchQuery}) {

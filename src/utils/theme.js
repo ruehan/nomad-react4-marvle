@@ -4,7 +4,7 @@
     text: 'black',
     toggleBorder: '#FFF',
     background: 'white',
-    border: '1px solid #f4f7f8'
+    border: '0px solid #f4f7f8'
   };
   
   export const darkTheme = {

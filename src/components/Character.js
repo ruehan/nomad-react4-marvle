@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { fetchCharacters } from "../utils/api";
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';

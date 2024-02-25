@@ -1,14 +1,17 @@
 import { useEffect, useState } from "react";
 
 import Character from "../components/Character";
+import SearchBar from "../components/SearchBar";
 
 function Home(){
 
     const [characters, setCharacters] = useState([]);
+    const [searchQuery, setSearchQuery] = useState('');
 
     return(
         <>
-            <Character characters={characters} setCharacters={setCharacters}/>
+            <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
+            <Character characters={characters} setCharacters={setCharacters} searchQuery={searchQuery}/>
         </>
     )
 }
